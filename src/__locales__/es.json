@@ -1,7 +1,12 @@
 {
-  "App.firstNameQuestion": "What's your fist name?",
-  "App.occupation": "What's your occupation?",
-  "App.doYouHaveChildrenQuestion": "Do you have children?",
-  "App.howManyChildrenQuestion": "How many children do you have?",
-  "App.emailQuestion": "What's your email?"
+  "Header.language": "Lenguaje:",
+  "Header.spanish": "Español",
+  "Header.english": "Ingles",
+  "Question.previous": "< Anterior",
+  "Question.next": "Siguiente >",
+  "App.firstNameQuestion": "Cual es tu nombre?",
+  "App.occupation": "A que te dedicas?",
+  "App.doYouHaveChildrenQuestion": "Tienes hijos?",
+  "App.howManyChildrenQuestion": "Cuantos hijos tienes?",
+  "App.emailQuestion": "cual es tu correo electronico?"
 }
