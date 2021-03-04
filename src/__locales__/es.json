@@ -1,0 +1,12 @@
+{
+  "Header.language": "Lenguaje:",
+  "Header.spanish": "Español",
+  "Header.english": "Ingles",
+  "Question.previous": "< Anterior",
+  "Question.next": "Siguiente >",
+  "App.firstNameQuestion": "Cual es tu nombre?",
+  "App.occupation": "A que te dedicas?",
+  "App.doYouHaveChildrenQuestion": "Tienes hijos?",
+  "App.howManyChildrenQuestion": "Cuantos hijos tienes?",
+  "App.emailQuestion": "cual es tu correo electronico?"
+}

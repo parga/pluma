@@ -1,0 +1,12 @@
+{
+  "Header.language": "Language:",
+  "Header.spanish": "Spanish",
+  "Header.english": "English",
+  "Question.previous": "< Previous",
+  "Question.next": "Next >",
+  "App.firstNameQuestion": "What's your fist name?",
+  "App.occupation": "What's your occupation?",
+  "App.doYouHaveChildrenQuestion": "Do you have children?",
+  "App.howManyChildrenQuestion": "How many children do you have?",
+  "App.emailQuestion": "What's your email?"
+}
