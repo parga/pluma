@@ -36,6 +36,7 @@ jobs:
         cmd: test # will run `yarn test` command
 
     - name: Deploy to GitHub Pages
+      if: github.event_name != 'pull_request'
       uses: JamesIves/github-pages-deploy-action@4.0.0
       with:
         branch: gh-pages # The branch the action should deploy to.
