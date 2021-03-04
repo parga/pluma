@@ -20,7 +20,7 @@ function App(): ReactElement {
     <IntlProvider locale={locale} messages={messages[locale]}>
       <Router basename="/pluma">
         <Header setLocale={setlocale} locale={locale}/>
-        <Main />
+        <Main/>
       </Router>
     </IntlProvider>
   );

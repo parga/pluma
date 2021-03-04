@@ -9,15 +9,17 @@ export function Main() {
   const intl = useIntl();
   const questions = useQuestions({intl});
   return (
-    <Switch>
-      {questions.map((question, i) =>(
-        <Route key={i} path={`/${question.id}`} >
-          <Question question={question} />
+    <div className="App">
+      <Switch>
+        {questions.map((question, i) =>(
+          <Route key={i} path={`/${question.id}`} >
+            <Question question={question} />
+          </Route>
+        ))}
+        <Route path="/" >
+          <Home />
         </Route>
-      ))}
-      <Route path="/" >
-        <Home />
-      </Route>
-    </Switch>
+      </Switch>
+    </div>
   )
 }

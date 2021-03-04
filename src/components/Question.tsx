@@ -24,10 +24,13 @@ export function Question ({question}: QuestionParams): ReactElement {
   const history = useHistory();
   const navigate = (url) => history.push(url);
 
-  return (<>
-    <div>{label}</div>
-    <button className='p-btn--primary' onClick={() => navigate(previous)}>{formatMessage(messages.previous)}</button>
-    <button className='p-btn--primary' onClick={() => navigate(next)}>{formatMessage(messages.next)}</button>
-  </>
+  return (
+    <div className="question">
+      <div>{label}</div>
+      <div>
+        <button className='p-btn--primary' onClick={() => navigate(previous)}>{formatMessage(messages.previous)}</button>
+        <button className='p-btn--primary' onClick={() => navigate(next)}>{formatMessage(messages.next)}</button>
+      </div>
+    </div>
   )
 }
