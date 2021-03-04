@@ -1,23 +1,26 @@
 {
   "files": {
-    "main.css": "https://parga.github.io/pluma/static/css/main.8c8b27cf.chunk.css",
-    "main.js": "https://parga.github.io/pluma/static/js/main.b2deb5b2.chunk.js",
-    "main.js.map": "https://parga.github.io/pluma/static/js/main.b2deb5b2.chunk.js.map",
-    "runtime-main.js": "https://parga.github.io/pluma/static/js/runtime-main.c363b38d.js",
-    "runtime-main.js.map": "https://parga.github.io/pluma/static/js/runtime-main.c363b38d.js.map",
-    "static/js/2.ffdc7b75.chunk.js": "https://parga.github.io/pluma/static/js/2.ffdc7b75.chunk.js",
-    "static/js/2.ffdc7b75.chunk.js.map": "https://parga.github.io/pluma/static/js/2.ffdc7b75.chunk.js.map",
-    "static/js/3.990308aa.chunk.js": "https://parga.github.io/pluma/static/js/3.990308aa.chunk.js",
-    "static/js/3.990308aa.chunk.js.map": "https://parga.github.io/pluma/static/js/3.990308aa.chunk.js.map",
+    "main.css": "https://parga.github.io/pluma/static/css/main.e52932a3.chunk.css",
+    "main.js": "https://parga.github.io/pluma/static/js/main.aeb5a319.chunk.js",
+    "main.js.map": "https://parga.github.io/pluma/static/js/main.aeb5a319.chunk.js.map",
+    "runtime-main.js": "https://parga.github.io/pluma/static/js/runtime-main.d72684c2.js",
+    "runtime-main.js.map": "https://parga.github.io/pluma/static/js/runtime-main.d72684c2.js.map",
+    "static/css/2.f7703b48.chunk.css": "https://parga.github.io/pluma/static/css/2.f7703b48.chunk.css",
+    "static/js/2.208f79e2.chunk.js": "https://parga.github.io/pluma/static/js/2.208f79e2.chunk.js",
+    "static/js/2.208f79e2.chunk.js.map": "https://parga.github.io/pluma/static/js/2.208f79e2.chunk.js.map",
+    "static/js/3.db4f5d43.chunk.js": "https://parga.github.io/pluma/static/js/3.db4f5d43.chunk.js",
+    "static/js/3.db4f5d43.chunk.js.map": "https://parga.github.io/pluma/static/js/3.db4f5d43.chunk.js.map",
     "index.html": "https://parga.github.io/pluma/index.html",
-    "static/css/main.8c8b27cf.chunk.css.map": "https://parga.github.io/pluma/static/css/main.8c8b27cf.chunk.css.map",
-    "static/js/2.ffdc7b75.chunk.js.LICENSE.txt": "https://parga.github.io/pluma/static/js/2.ffdc7b75.chunk.js.LICENSE.txt",
-    "static/media/logo.6ce24c58.svg": "https://parga.github.io/pluma/static/media/logo.6ce24c58.svg"
+    "static/css/2.f7703b48.chunk.css.map": "https://parga.github.io/pluma/static/css/2.f7703b48.chunk.css.map",
+    "static/css/main.e52932a3.chunk.css.map": "https://parga.github.io/pluma/static/css/main.e52932a3.chunk.css.map",
+    "static/js/2.208f79e2.chunk.js.LICENSE.txt": "https://parga.github.io/pluma/static/js/2.208f79e2.chunk.js.LICENSE.txt",
+    "static/media/index.css": "https://parga.github.io/pluma/static/media/icon-form-dropdown.68b66c90.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.c363b38d.js",
-    "static/js/2.ffdc7b75.chunk.js",
-    "static/css/main.8c8b27cf.chunk.css",
-    "static/js/main.b2deb5b2.chunk.js"
+    "static/js/runtime-main.d72684c2.js",
+    "static/css/2.f7703b48.chunk.css",
+    "static/js/2.208f79e2.chunk.js",
+    "static/css/main.e52932a3.chunk.css",
+    "static/js/main.aeb5a319.chunk.js"
   ]
 }
