@@ -1,6 +1,5 @@
-import {defineMessages, IntlShape} from 'react-intl';
-import { useLocalStorage } from './useLocalStorage';
-
+import { useEffect, useState } from "react";
+import { defineMessages, IntlShape } from "react-intl";
 
 interface Input {
   type: string;
@@ -14,11 +13,12 @@ export interface Question {
   previous?: string;
   question?: string;
   input?: Input;
-  onChange?: (event:any) => void;
+  onChange?: (event: any) => void;
+  onNext?: () => void;
 }
 
 interface useQuestionsParams {
-  intl: IntlShape,
+  intl: IntlShape;
   userId: string;
 }
 
@@ -30,6 +30,14 @@ const messages = defineMessages({
   firstNamePlaceholder: {
     id: "App.firstNamePlaceholder",
     defaultMessage: `Your name here`,
+  },
+  addressQuestion: {
+    id: "App.addressQuestion",
+    defaultMessage: `What's your address?`,
+  },
+  addressPlaceholder: {
+    id: "App.addressPlaceholder",
+    defaultMessage: `Your address here`,
   },
   occupationQuestion: {
     id: "App.occupation",
@@ -70,31 +78,54 @@ const messages = defineMessages({
   },
 });
 
-export function useQuestions({intl, userId}: useQuestionsParams): Question[] {
-  const {formatMessage} = intl;
-  const [firstName, setFirstName] = useLocalStorage(`${userId}:name`, '');
-  const [occupation, setOccupation] = useLocalStorage(
-    `${userId}:occupation`,
-    "EMPLOYED"
-  );
-  const [children, setChildren] = useLocalStorage(`${userId}:children`, "yes");
-  const [howMany, setHowMany] = useLocalStorage(`${userId}:howMany`, "0");
-  const [email, setEmail] = useLocalStorage(`${userId}:email`, "");
+export function useQuestions({ intl, userId }: useQuestionsParams): Question[] {
+  const [firstName, setFirstName] = useState("");
+  const [address, setAddress] = useState("");
+  const [occupation, setOccupation] = useState("");
+  const [children, setChildren] = useState("");
+  const [howMany, setHowMany] = useState("");
+  const [email, setEmail] = useState("");
+  const { formatMessage } = intl;
+
+  useEffect(() => {
+    setFirstName(window.localStorage.getItem(`${userId}:firstName`) || "");
+    setAddress(window.localStorage.getItem(`${userId}:address`) || "");
+    setOccupation(
+      window.localStorage.getItem(`${userId}:occupation`) || ""
+    );
+    setChildren(window.localStorage.getItem(`${userId}:children`) || "");
+    setHowMany(window.localStorage.getItem(`${userId}:howMany`) || "");
+    setEmail(window.localStorage.getItem(`${userId}:email`) || "");
+  }, [userId]);
 
   return [
     {
       id: "firstName",
       previous: "/",
-      next: "occupation",
+      next: "address",
       input: {
         type: "text",
         placeholder: formatMessage(messages.firstNamePlaceholder),
         currentValue: firstName,
       },
       question: formatMessage(messages.firstNameQuestion),
-      onChange: (event) => {
-        setFirstName(event.target.value);
+      onChange: (event) => setFirstName(event.target.value),
+      onNext: () =>
+        window.localStorage.setItem(`${userId}:firstName`, firstName),
+    },
+    {
+      id: "address",
+      previous: "/",
+      next: "occupation",
+      input: {
+        type: "text",
+        placeholder: formatMessage(messages.addressPlaceholder),
+        currentValue: address,
       },
+      question: formatMessage(messages.addressQuestion),
+      onChange: (event) => setAddress(event.target.value),
+      onNext: () =>
+        window.localStorage.setItem(`${userId}:address`, address),
     },
     {
       id: "occupation",
@@ -119,9 +150,9 @@ export function useQuestions({intl, userId}: useQuestionsParams): Question[] {
         currentValue: occupation,
       },
       question: formatMessage(messages.occupationQuestion),
-      onChange: (event) => {
-        setOccupation(event.target.value);
-      },
+      onChange: (event) => setOccupation(event.target.value),
+      onNext: () =>
+        window.localStorage.setItem(`${userId}:occupation`, occupation),
     },
     {
       id: "children",
@@ -142,9 +173,8 @@ export function useQuestions({intl, userId}: useQuestionsParams): Question[] {
         currentValue: children,
       },
       question: formatMessage(messages.doYouHaveChildrenQuestion),
-      onChange: (event) => {
-        setChildren(event.target.value);
-      },
+      onChange: (event) => setChildren(event.target.value),
+      onNext: () => window.localStorage.setItem(`${userId}:children`, children),
     },
     {
       id: "howMany",
@@ -156,22 +186,23 @@ export function useQuestions({intl, userId}: useQuestionsParams): Question[] {
         currentValue: howMany,
       },
       question: formatMessage(messages.howManyChildrenQuestion),
-      onChange: (event) => {
-        setHowMany(event.target.value);
-      },
+      onChange: (event) => setHowMany(event.target.value),
+      onNext: () => window.localStorage.setItem(`${userId}:howMany`, howMany),
     },
     {
       id: "emailAddress",
       previous: children === "Yes" ? "howMany" : "children",
-      next: "save",
+      next: "recommendations",
       input: {
-        type: "text",
+        type: "email",
         placeholder: "jorge.parga@pluma.com",
         currentValue: email,
       },
       question: formatMessage(messages.emailQuestion),
-      onChange: (event) => {
-        setEmail(event.target.value);
+      onChange: (event) => setEmail(event.target.value),
+      onNext: () => {
+        window.localStorage.setItem(`${userId}:email`, email);
+        window.localStorage.setItem(`${userId}:completedProfile`, "true");
       },
     },
   ];

@@ -25,11 +25,12 @@ export function Question ({question}: QuestionParams): ReactElement {
   const navigate = (url) => history.push(url);
 
   const inputField =
-    question.input.type === "text" ? (
+    question.input.type !== "radio" ? (
       <Text
         placeholder={question.input.placeholder}
         onChange={question.onChange}
         currentValue={question.input.currentValue}
+        type={question.input.type}
       />
     ) : (
       <Radio
@@ -52,7 +53,11 @@ export function Question ({question}: QuestionParams): ReactElement {
         </button>
         <button
           className="p-btn--primary mt16 ws2"
-          onClick={() => navigate(next)}
+          onClick={() => {
+            question.onNext()
+            navigate(next)
+          }}
+          disabled={!question.input.currentValue}
         >
           {formatMessage(messages.next)}
         </button>
@@ -61,13 +66,15 @@ export function Question ({question}: QuestionParams): ReactElement {
   );
 }
 
-function Text({placeholder, onChange, currentValue}) {
+function Text({placeholder, onChange, currentValue, type}) {
+  const emailType = type === 'email' ? 'email' : ''
   return (
     <input
       className="p-input d-block mt8 wmx6"
       placeholder={placeholder}
       onChange={onChange}
       value={currentValue}
+      type={emailType}
     />
   );
 }

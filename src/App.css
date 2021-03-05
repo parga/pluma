@@ -65,3 +65,13 @@
   align-items: center;
   height: 95vh;
 }
+
+.recommendation {
+  padding: 5%;
+  display: flex;
+  justify-content: space-between;
+  border: 1px;
+  border-color: #5f7ba0;
+  border-style: solid;
+}
+

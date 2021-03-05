@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import { defineMessages, useIntl } from 'react-intl';
 import { useHistory } from 'react-router-dom';
 
@@ -24,6 +25,15 @@ export function Home ({userId, setUserId}) {
   const {formatMessage } = useIntl();
   const history = useHistory();
   const navigate = (url) => history.push(url);
+  const [url, setUrl] = useState("/firstName");
+
+  useEffect(() => {
+    const token = window.localStorage.getItem(`${userId}:token`)
+    if(token) {
+      setUrl('/recommendations')
+    }
+  }, [userId]);
+
   return (
     <div className="home-container">
       <h1 className="p-h1">{formatMessage(messages.signIn)}</h1>
@@ -39,7 +49,8 @@ export function Home ({userId, setUserId}) {
         />
         <button
           className="p-btn p-btn--primary wmn3 mt16"
-          onClick={() => navigate("/firstName")}
+          onClick={() => navigate(url)}
+          disabled={!userId}
         >
           {formatMessage(messages.continue)}
         </button>
