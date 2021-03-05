@@ -75,7 +75,7 @@ export function useQuestions({intl, userId}: useQuestionsParams): Question[] {
   const [firstName, setFirstName] = useLocalStorage(`${userId}:name`, '');
   const [occupation, setOccupation] = useLocalStorage(
     `${userId}:occupation`,
-    "employed"
+    "EMPLOYED"
   );
   const [children, setChildren] = useLocalStorage(`${userId}:children`, "yes");
   const [howMany, setHowMany] = useLocalStorage(`${userId}:howMany`, "0");
