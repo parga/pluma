@@ -27,29 +27,31 @@ export function Header({ setLocale, locale }: HeaderProps) {
     setLocale(event.target.value);
   };
   return (
-    <header className="App-header">
-      <div className="logo">
-        <img
-          src="https://feather-insurance.com/_next/static/media/logo.0d69221106425e5288907e514db23d99.svg"
-          aria-label="Home"
-        />
-        <div className="name">
-          <h1>Pluma</h1>
+    <header className="header-container">
+      <div className="header">
+        <div className="logo">
+          <img
+            src="https://feather-insurance.com/_next/static/media/logo.0d69221106425e5288907e514db23d99.svg"
+            aria-label="Home"
+          />
+          <div className="name">
+            <h1 className="p-h1">Pluma</h1>
+          </div>
         </div>
-      </div>
-      <div className="language-selector-box">
-        <label htmlFor="language-selector">
-          {formatMessage(messages.language)}
-        </label>
-        <select
-          className="p-select"
-          id="language-selector"
-          onChange={handleOnChange}
-          value={locale}
-        >
-          <option value="es">{formatMessage(messages.spanish)}</option>
-          <option value="en">{formatMessage(messages.english)}</option>
-        </select>
+        <div className="language-selector-box">
+          <label htmlFor="language-selector">
+            {formatMessage(messages.language)}
+          </label>
+          <select
+            className="p-select"
+            id="language-selector"
+            onChange={handleOnChange}
+            value={locale}
+          >
+            <option value="es">{formatMessage(messages.spanish)}</option>
+            <option value="en">{formatMessage(messages.english)}</option>
+          </select>
+        </div>
       </div>
     </header>
   );

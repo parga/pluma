@@ -1,10 +1,18 @@
 import {defineMessages, IntlShape} from 'react-intl';
 
+
+interface Input {
+  type: string;
+  options?: string[];
+  placeholder?: string;
+}
 export interface Question {
   id: string;
   next?: string;
   previous?: string;
   question?: string;
+  input?: Input;
+  options?: string[]
 }
 
 interface useQuestionsParams {
@@ -36,36 +44,56 @@ const messages = defineMessages({
 
 export function useQuestions({intl}: useQuestionsParams): Question[] {
   const {formatMessage} = intl;
-  return  [
+  return [
     {
-      id: 'firstName',
-      previous: '/',
-      next: 'occupation',
-      question: formatMessage(messages.firstNameQuestion)
+      id: "firstName",
+      previous: "/",
+      next: "occupation",
+      input: {
+        type: "text",
+        placeholder: "Your name here",
+      },
+      question: formatMessage(messages.firstNameQuestion),
     },
     {
-      id: 'occupation',
-      previous: 'firstName',
-      next: 'children',
-      question: formatMessage(messages.occupationQuestion)
+      id: "occupation",
+      previous: "firstName",
+      next: "children",
+      input: {
+        type: "radio",
+        options: ["Employed", "SelfEmployed", "Student"],
+      },
+      question: formatMessage(messages.occupationQuestion),
     },
     {
-      id: 'children',
-      previous: 'occupation',
-      next: 'howMany',
-      question: formatMessage(messages.doYouHaveChildrenQuestion)
+      id: "children",
+      previous: "occupation",
+      next: "howMany",
+      input: {
+        type: "radio",
+        options: ["Yes", "No"],
+      },
+      question: formatMessage(messages.doYouHaveChildrenQuestion),
     },
     {
-      id: 'howMany',
-      previous: 'children',
-      next: 'emailAddress',
-      question: formatMessage(messages.howManyChildrenQuestion)
+      id: "howMany",
+      previous: "children",
+      next: "emailAddress",
+      input: {
+        type: "text",
+        placeholder: "1",
+      },
+      question: formatMessage(messages.howManyChildrenQuestion),
     },
     {
-      id: 'emailAddress',
-      previous: 'howMany',
-      next: 'save',
-      question: formatMessage(messages.emailQuestion)
-    }
+      id: "emailAddress",
+      previous: "howMany",
+      next: "save",
+      input: {
+        type: "text",
+        placeholder: "jorge.parga@pluma.com",
+      },
+      question: formatMessage(messages.emailQuestion),
+    },
   ];
 }
