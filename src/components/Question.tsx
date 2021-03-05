@@ -32,7 +32,11 @@ export function Question ({question}: QuestionParams): ReactElement {
         currentValue={question.input.currentValue}
       />
     ) : (
-      <Radio options={question.input.options} onChange={question.onChange} currentValue={question.input.currentValue}/>
+      <Radio
+        options={question.input.options}
+        onChange={question.onChange}
+        currentValue={question.input.currentValue}
+      />
     );
 
   return (
@@ -72,9 +76,8 @@ function Radio({options, onChange, currentValue}) {
   return (
     <div className="p-label-container mt8">
       {options.map((option, i) => (
-        <>
+        <div key={i}>
           <input
-            key={i + 1}
             id={`default-${i}`}
             className="p-radio"
             type="radio"
@@ -82,10 +85,10 @@ function Radio({options, onChange, currentValue}) {
             onChange={onChange}
             checked={currentValue === option}
           />
-          <label key={(i + 1) * 2} htmlFor={`default-${i}`} className="p-label">
+          <label htmlFor={`default-${i}`} className="p-label">
             {option}
           </label>
-        </>
+        </div >
       ))}
     </div>
   );
