@@ -20,7 +20,7 @@ const messages = defineMessages({
   },
 });
 
-export function Home () {
+export function Home ({userId, setUserId}) {
   const {formatMessage } = useIntl();
   const history = useHistory();
   const navigate = (url) => history.push(url);
@@ -34,6 +34,8 @@ export function Home () {
           className="p-input d-block mt8 wmx6"
           type="email"
           placeholder={formatMessage(messages.emailPlaceholder)}
+          value={userId}
+          onChange={(event) => setUserId(event.target.value)}
         />
         <button
           className="p-btn p-btn--primary wmn3 mt16"

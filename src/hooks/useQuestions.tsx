@@ -1,5 +1,5 @@
-import { useState } from 'react';
 import {defineMessages, IntlShape} from 'react-intl';
+import { useLocalStorage } from './useLocalStorage';
 
 
 interface Input {
@@ -18,7 +18,8 @@ export interface Question {
 }
 
 interface useQuestionsParams {
-  intl: IntlShape
+  intl: IntlShape,
+  userId: string;
 }
 
 const messages = defineMessages({
@@ -69,13 +70,16 @@ const messages = defineMessages({
   },
 });
 
-export function useQuestions({intl}: useQuestionsParams): Question[] {
+export function useQuestions({intl, userId}: useQuestionsParams): Question[] {
   const {formatMessage} = intl;
-  const [firstName, setFirstName] = useState('');
-  const [occupation, setOccupation] = useState('employed');
-  const [children, setChildren] = useState('yes')
-  const [howMany, setHowMany] = useState('0');
-  const [email, setEmail] = useState('')
+  const [firstName, setFirstName] = useLocalStorage(`${userId}:name`, '');
+  const [occupation, setOccupation] = useLocalStorage(
+    `${userId}:occupation`,
+    "employed"
+  );
+  const [children, setChildren] = useLocalStorage(`${userId}:children`, "yes");
+  const [howMany, setHowMany] = useLocalStorage(`${userId}:howMany`, "0");
+  const [email, setEmail] = useLocalStorage(`${userId}:email`, "");
 
   return [
     {
@@ -101,15 +105,15 @@ export function useQuestions({intl}: useQuestionsParams): Question[] {
         options: [
           {
             label: formatMessage(messages.occupationEmployed),
-            value: "employed",
+            value: "EMPLOYED",
           },
           {
             label: formatMessage(messages.occupationSelfEmployed),
-            value: "selfEmployed",
+            value: "SELF_EMPLOYED",
           },
           {
             label: formatMessage(messages.occupationStudent),
-            value: "student",
+            value: "STUDENT",
           },
         ],
         currentValue: occupation,

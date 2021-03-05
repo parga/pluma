@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useIntl } from 'react-intl';
 import { Route, Switch } from 'react-router-dom';
 import { useQuestions } from '../hooks/useQuestions';
@@ -7,7 +7,8 @@ import { Question } from './Question';
 
 export function Main() {
   const intl = useIntl();
-  const questions = useQuestions({intl});
+  const [userId, setUserId] = useState('');
+  const questions = useQuestions({intl, userId});
   return (
     <div className="App">
       <Switch>
@@ -17,7 +18,7 @@ export function Main() {
           </Route>
         ))}
         <Route path="/" >
-          <Home />
+          <Home userId={userId} setUserId={setUserId}/>
         </Route>
       </Switch>
     </div>
