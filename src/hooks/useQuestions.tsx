@@ -15,6 +15,7 @@ export interface Question {
   input?: Input;
   onChange?: (event: any) => void;
   onNext?: () => void;
+  validation?: () => boolean;
 }
 
 interface useQuestionsParams {
@@ -78,6 +79,12 @@ const messages = defineMessages({
   },
 });
 
+
+const isEmail = (value) =>
+  /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(
+    value
+  );
+
 export function useQuestions({ intl, userId }: useQuestionsParams): Question[] {
   const [firstName, setFirstName] = useState("");
   const [address, setAddress] = useState("");
@@ -112,6 +119,7 @@ export function useQuestions({ intl, userId }: useQuestionsParams): Question[] {
       onChange: (event) => setFirstName(event.target.value),
       onNext: () =>
         window.localStorage.setItem(`${userId}:firstName`, firstName),
+      validation: () => !firstName,
     },
     {
       id: "address",
@@ -124,8 +132,8 @@ export function useQuestions({ intl, userId }: useQuestionsParams): Question[] {
       },
       question: formatMessage(messages.addressQuestion),
       onChange: (event) => setAddress(event.target.value),
-      onNext: () =>
-        window.localStorage.setItem(`${userId}:address`, address),
+      onNext: () => window.localStorage.setItem(`${userId}:address`, address),
+      validation: () => !address,
     },
     {
       id: "occupation",
@@ -153,6 +161,7 @@ export function useQuestions({ intl, userId }: useQuestionsParams): Question[] {
       onChange: (event) => setOccupation(event.target.value),
       onNext: () =>
         window.localStorage.setItem(`${userId}:occupation`, occupation),
+      validation: () => !occupation,
     },
     {
       id: "children",
@@ -175,6 +184,7 @@ export function useQuestions({ intl, userId }: useQuestionsParams): Question[] {
       question: formatMessage(messages.doYouHaveChildrenQuestion),
       onChange: (event) => setChildren(event.target.value),
       onNext: () => window.localStorage.setItem(`${userId}:children`, children),
+      validation: () => !children,
     },
     {
       id: "howMany",
@@ -188,6 +198,7 @@ export function useQuestions({ intl, userId }: useQuestionsParams): Question[] {
       question: formatMessage(messages.howManyChildrenQuestion),
       onChange: (event) => setHowMany(event.target.value),
       onNext: () => window.localStorage.setItem(`${userId}:howMany`, howMany),
+      validation: () => !howMany,
     },
     {
       id: "emailAddress",
@@ -204,6 +215,7 @@ export function useQuestions({ intl, userId }: useQuestionsParams): Question[] {
         window.localStorage.setItem(`${userId}:email`, email);
         window.localStorage.setItem(`${userId}:completedProfile`, "true");
       },
+      validation: () => !email || !isEmail(email),
     },
   ];
 }

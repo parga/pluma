@@ -38,7 +38,7 @@ export function Home ({userId, setUserId}) {
     <div className="home-container">
       <h1 className="p-h1">{formatMessage(messages.signIn)}</h1>
       <div>
-        <h4 className="p-h4">{formatMessage(messages.signInEmail)}</h4>
+        <label className="p-h4" htmlFor="email">{formatMessage(messages.signInEmail)}</label>
         <input
           id="email"
           className="p-input d-block mt8 wmx6"

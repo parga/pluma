@@ -29,7 +29,7 @@ export function Header({ setLocale, locale }: HeaderProps) {
   return (
     <header className="header-container">
       <div className="header">
-        <a className="logo" href="/">
+        <a className="logo" href="/pluma">
           <img
             src="https://feather-insurance.com/_next/static/media/logo.0d69221106425e5288907e514db23d99.svg"
             aria-label="Home"
