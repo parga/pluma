@@ -24,9 +24,16 @@ export function Question ({question}: QuestionParams): ReactElement {
   const history = useHistory();
   const navigate = (url) => history.push(url);
 
-  const inputField = question.input.type === 'text'?
-    <Text placeholder={question.input.placeholder} /> :
-    <Radio options={question.input.options} />;
+  const inputField =
+    question.input.type === "text" ? (
+      <Text
+        placeholder={question.input.placeholder}
+        onChange={question.onChange}
+        currentValue={question.input.currentValue}
+      />
+    ) : (
+      <Radio options={question.input.options} onChange={question.onChange} currentValue={question.input.currentValue}/>
+    );
 
   return (
     <div className="question">
@@ -50,19 +57,32 @@ export function Question ({question}: QuestionParams): ReactElement {
   );
 }
 
-function Text({placeholder}) {
+function Text({placeholder, onChange, currentValue}) {
   return (
-    <input className="p-input d-block mt8 wmx6" placeholder={placeholder} />
+    <input
+      className="p-input d-block mt8 wmx6"
+      placeholder={placeholder}
+      onChange={onChange}
+      value={currentValue}
+    />
   );
 }
 
-function Radio({options}) {
+function Radio({options, onChange, currentValue}) {
   return (
     <div className="p-label-container mt8">
       {options.map((option, i) => (
         <>
-          <input key={i+1} id={`default-${i}`} className="p-radio" type="radio" />
-          <label key={(i+1)*2} htmlFor={`default-${i}`} className="p-label">
+          <input
+            key={i + 1}
+            id={`default-${i}`}
+            className="p-radio"
+            type="radio"
+            value={option}
+            onChange={onChange}
+            checked={currentValue === option}
+          />
+          <label key={(i + 1) * 2} htmlFor={`default-${i}`} className="p-label">
             {option}
           </label>
         </>
