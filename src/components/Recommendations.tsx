@@ -104,7 +104,7 @@ export function Recommendations({userId}) {
     return (
       <>
         {recommendations.length ? (
-          <div className="home-container">
+          <div className="home-container ml8 mr8">
             <h1 className="p-h1">
               {formatMessage(messages.recommendationTitle)}
             </h1>
@@ -114,9 +114,13 @@ export function Recommendations({userId}) {
               </h4>
               {recommendations.map((recommendation, i) => (
                 <div key={i} className="recommendation mb24">
-                  <h4 className="p-h4">{formatMessage(messages[recommendation.type])}</h4>
+                  <h4 className="p-h4">
+                    {formatMessage(messages[recommendation.type])}
+                  </h4>
                   <div>
-                    {` $ ${recommendation.price.amount} ${formatMessage(messages[recommendation.price.periodicity])}`}
+                    {` $ ${recommendation.price.amount} ${formatMessage(
+                      messages[recommendation.price.periodicity]
+                    )}`}
                   </div>
                 </div>
               ))}

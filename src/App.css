@@ -66,6 +66,10 @@
   height: 95vh;
 }
 
+.logo {
+  text-decoration: none;
+}
+
 .recommendation {
   padding: 5%;
   display: flex;

@@ -29,7 +29,7 @@ export function Header({ setLocale, locale }: HeaderProps) {
   return (
     <header className="header-container">
       <div className="header">
-        <div className="logo">
+        <a className="logo" href="/">
           <img
             src="https://feather-insurance.com/_next/static/media/logo.0d69221106425e5288907e514db23d99.svg"
             aria-label="Home"
@@ -37,7 +37,7 @@ export function Header({ setLocale, locale }: HeaderProps) {
           <div className="name">
             <h1 className="p-h1">Pluma</h1>
           </div>
-        </div>
+        </a>
         <div className="language-selector-box">
           <label htmlFor="language-selector">
             {formatMessage(messages.language)}
