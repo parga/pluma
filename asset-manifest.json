@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "https://parga.github.io/pluma/static/css/main.f2cdea27.chunk.css",
-    "main.js": "https://parga.github.io/pluma/static/js/main.1a1d1999.chunk.js",
-    "main.js.map": "https://parga.github.io/pluma/static/js/main.1a1d1999.chunk.js.map",
+    "main.js": "https://parga.github.io/pluma/static/js/main.3c52bf00.chunk.js",
+    "main.js.map": "https://parga.github.io/pluma/static/js/main.3c52bf00.chunk.js.map",
     "runtime-main.js": "https://parga.github.io/pluma/static/js/runtime-main.d72684c2.js",
     "runtime-main.js.map": "https://parga.github.io/pluma/static/js/runtime-main.d72684c2.js.map",
     "static/css/2.f7703b48.chunk.css": "https://parga.github.io/pluma/static/css/2.f7703b48.chunk.css",
@@ -21,6 +21,6 @@
     "static/css/2.f7703b48.chunk.css",
     "static/js/2.3a3da270.chunk.js",
     "static/css/main.f2cdea27.chunk.css",
-    "static/js/main.1a1d1999.chunk.js"
+    "static/js/main.3c52bf00.chunk.js"
   ]
 }
