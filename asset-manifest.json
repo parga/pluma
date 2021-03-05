@@ -1,26 +1,26 @@
 {
   "files": {
     "main.css": "https://parga.github.io/pluma/static/css/main.f2cdea27.chunk.css",
-    "main.js": "https://parga.github.io/pluma/static/js/main.1aae62d7.chunk.js",
-    "main.js.map": "https://parga.github.io/pluma/static/js/main.1aae62d7.chunk.js.map",
+    "main.js": "https://parga.github.io/pluma/static/js/main.fefe4d96.chunk.js",
+    "main.js.map": "https://parga.github.io/pluma/static/js/main.fefe4d96.chunk.js.map",
     "runtime-main.js": "https://parga.github.io/pluma/static/js/runtime-main.d72684c2.js",
     "runtime-main.js.map": "https://parga.github.io/pluma/static/js/runtime-main.d72684c2.js.map",
     "static/css/2.f7703b48.chunk.css": "https://parga.github.io/pluma/static/css/2.f7703b48.chunk.css",
-    "static/js/2.10a6d904.chunk.js": "https://parga.github.io/pluma/static/js/2.10a6d904.chunk.js",
-    "static/js/2.10a6d904.chunk.js.map": "https://parga.github.io/pluma/static/js/2.10a6d904.chunk.js.map",
+    "static/js/2.bf62a9c5.chunk.js": "https://parga.github.io/pluma/static/js/2.bf62a9c5.chunk.js",
+    "static/js/2.bf62a9c5.chunk.js.map": "https://parga.github.io/pluma/static/js/2.bf62a9c5.chunk.js.map",
     "static/js/3.db4f5d43.chunk.js": "https://parga.github.io/pluma/static/js/3.db4f5d43.chunk.js",
     "static/js/3.db4f5d43.chunk.js.map": "https://parga.github.io/pluma/static/js/3.db4f5d43.chunk.js.map",
     "index.html": "https://parga.github.io/pluma/index.html",
     "static/css/2.f7703b48.chunk.css.map": "https://parga.github.io/pluma/static/css/2.f7703b48.chunk.css.map",
     "static/css/main.f2cdea27.chunk.css.map": "https://parga.github.io/pluma/static/css/main.f2cdea27.chunk.css.map",
-    "static/js/2.10a6d904.chunk.js.LICENSE.txt": "https://parga.github.io/pluma/static/js/2.10a6d904.chunk.js.LICENSE.txt",
+    "static/js/2.bf62a9c5.chunk.js.LICENSE.txt": "https://parga.github.io/pluma/static/js/2.bf62a9c5.chunk.js.LICENSE.txt",
     "static/media/index.css": "https://parga.github.io/pluma/static/media/icon-form-dropdown.68b66c90.svg"
   },
   "entrypoints": [
     "static/js/runtime-main.d72684c2.js",
     "static/css/2.f7703b48.chunk.css",
-    "static/js/2.10a6d904.chunk.js",
+    "static/js/2.bf62a9c5.chunk.js",
     "static/css/main.f2cdea27.chunk.css",
-    "static/js/main.1aae62d7.chunk.js"
+    "static/js/main.fefe4d96.chunk.js"
   ]
 }
