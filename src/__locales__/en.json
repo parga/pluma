@@ -9,8 +9,14 @@
   "Question.previous": "< Previous",
   "Question.next": "Next >",
   "App.firstNameQuestion": "What's your fist name?",
+  "App.firstNamePlaceholder": "Your name here",
   "App.occupation": "What's your occupation?",
+  "App.occupationEmployed": "Employed",
+  "App.occupationSelfEmployed": "SelfEmployed",
+  "App.occupationStudent": "Student",
   "App.doYouHaveChildrenQuestion": "Do you have children?",
+  "App.childrenYes": "Yes",
+  "App.childrenNo": "No",
   "App.howManyChildrenQuestion": "How many children do you have?",
   "App.emailQuestion": "What's your email?"
 }

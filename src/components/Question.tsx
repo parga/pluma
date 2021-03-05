@@ -81,12 +81,12 @@ function Radio({options, onChange, currentValue}) {
             id={`default-${i}`}
             className="p-radio"
             type="radio"
-            value={option}
+            value={option.value}
             onChange={onChange}
-            checked={currentValue === option}
+            checked={currentValue === option.value}
           />
           <label htmlFor={`default-${i}`} className="p-label">
-            {option}
+            {option.label}
           </label>
         </div >
       ))}

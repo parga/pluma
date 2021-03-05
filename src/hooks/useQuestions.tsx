@@ -4,7 +4,7 @@ import {defineMessages, IntlShape} from 'react-intl';
 
 interface Input {
   type: string;
-  options?: string[];
+  options?: { label: string; value: string }[];
   placeholder?: string;
   currentValue: string;
 }
@@ -14,7 +14,6 @@ export interface Question {
   previous?: string;
   question?: string;
   input?: Input;
-  options?: string[]
   onChange?: (event:any) => void;
 }
 
@@ -24,32 +23,57 @@ interface useQuestionsParams {
 
 const messages = defineMessages({
   firstNameQuestion: {
-    id: 'App.firstNameQuestion',
-    defaultMessage: `What's your fist name?`
+    id: "App.firstNameQuestion",
+    defaultMessage: `What's your fist name?`,
+  },
+  firstNamePlaceholder: {
+    id: "App.firstNamePlaceholder",
+    defaultMessage: `Your name here`,
   },
   occupationQuestion: {
-    id: 'App.occupation',
-    defaultMessage: `What's your occupation?`
+    id: "App.occupation",
+    defaultMessage: `What's your occupation?`,
+  },
+  occupationEmployed: {
+    id: "App.occupationEmployed",
+    defaultMessage: `Employed`,
+  },
+  occupationSelfEmployed: {
+    id: "App.occupationSelfEmployed",
+    defaultMessage: `SelfEmployed`,
+  },
+  occupationStudent: {
+    id: "App.occupationStudent",
+    defaultMessage: `Student`,
   },
   doYouHaveChildrenQuestion: {
-    id: 'App.doYouHaveChildrenQuestion',
-    defaultMessage: `Do you have children?`
+    id: "App.doYouHaveChildrenQuestion",
+    defaultMessage: `Do you have children?`,
   },
+  childrenYes: {
+    id: "App.childrenYes",
+    defaultMessage: `Yes`,
+  },
+  childrenNo: {
+    id: "App.childrenNo",
+    defaultMessage: `No`,
+  },
+
   howManyChildrenQuestion: {
-    id: 'App.howManyChildrenQuestion',
-    defaultMessage: `How many children do you have?`
+    id: "App.howManyChildrenQuestion",
+    defaultMessage: `How many children do you have?`,
   },
   emailQuestion: {
-    id: 'App.emailQuestion',
-    defaultMessage: `What's your email?`
-  }
+    id: "App.emailQuestion",
+    defaultMessage: `What's your email?`,
+  },
 });
 
 export function useQuestions({intl}: useQuestionsParams): Question[] {
   const {formatMessage} = intl;
   const [firstName, setFirstName] = useState('');
-  const [occupation, setOccupation] = useState('Employed');
-  const [children, setChildren] = useState('Yes')
+  const [occupation, setOccupation] = useState('employed');
+  const [children, setChildren] = useState('yes')
   const [howMany, setHowMany] = useState('0');
   const [email, setEmail] = useState('')
 
@@ -60,7 +84,7 @@ export function useQuestions({intl}: useQuestionsParams): Question[] {
       next: "occupation",
       input: {
         type: "text",
-        placeholder: "Your name here",
+        placeholder: formatMessage(messages.firstNamePlaceholder),
         currentValue: firstName,
       },
       question: formatMessage(messages.firstNameQuestion),
@@ -74,7 +98,20 @@ export function useQuestions({intl}: useQuestionsParams): Question[] {
       next: "children",
       input: {
         type: "radio",
-        options: ["Employed", "SelfEmployed", "Student"],
+        options: [
+          {
+            label: formatMessage(messages.occupationEmployed),
+            value: "employed",
+          },
+          {
+            label: formatMessage(messages.occupationSelfEmployed),
+            value: "selfEmployed",
+          },
+          {
+            label: formatMessage(messages.occupationStudent),
+            value: "student",
+          },
+        ],
         currentValue: occupation,
       },
       question: formatMessage(messages.occupationQuestion),
@@ -85,10 +122,19 @@ export function useQuestions({intl}: useQuestionsParams): Question[] {
     {
       id: "children",
       previous: "occupation",
-      next: children === "Yes" ? "howMany" : "emailAddress",
+      next: children === "yes" ? "howMany" : "emailAddress",
       input: {
         type: "radio",
-        options: ["Yes", "No"],
+        options: [
+          {
+            label: formatMessage(messages.childrenYes),
+            value: "yes",
+          },
+          {
+            label: formatMessage(messages.childrenNo),
+            value: "no",
+          },
+        ],
         currentValue: children,
       },
       question: formatMessage(messages.doYouHaveChildrenQuestion),

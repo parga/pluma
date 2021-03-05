@@ -12,5 +12,11 @@
   "App.occupation": "A que te dedicas?",
   "App.doYouHaveChildrenQuestion": "Tienes hijos?",
   "App.howManyChildrenQuestion": "Cuantos hijos tienes?",
-  "App.emailQuestion": "cual es tu correo electronico?"
+  "App.emailQuestion": "cual es tu correo electronico?",
+  "App.firstNamePlaceholder": "Tu nombre aqui",
+  "App.occupationEmployed": "Empleado",
+  "App.occupationSelfEmployed": "Autonomo",
+  "App.occupationStudent": "Estudiante",
+  "App.childrenYes": "Si",
+  "App.childrenNo": "No"
 }
