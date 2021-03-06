@@ -1,6 +1,9 @@
 # Welcome to the Pluma App
+~ Powered by Dirty Swan design system~
+## URL https://parga.github.io/pluma/
 
-Thank you so much for be the beta user of the Pluma app
+
+Thank you so much for be the beta user of the Pluma app, remember that you can also use it in your cellphone browser!
 
 to get you started please run the next commands
 
@@ -17,6 +20,7 @@ If you create a PR a build will run for any commit to that PR and will let you k
 For the main branch, it will run the same as the PR but also deploy automatically to GH-Pages
 
 A lot of the code generated for documentation, testing and Integration test does not cover the entire application but serves more as an example of what could be done.
+
 
 
 ## Available Scripts
