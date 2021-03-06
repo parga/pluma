@@ -8,7 +8,7 @@
   "Home.emailPlaceholder": "Aqui tu correo electronico",
   "Question.previous": "< Anterior",
   "Question.next": "Siguiente >",
-  "Recommendations.recommendationTitle": "Estas son las recomendaciones para ti;",
+  "Recommendations.recommendationTitle": "Estas son las recomendaciones para ti:",
   "Recommendations.recommendationSubTitle": "En base a tus respuestas, esto es lo que creemos que funciona para ti y su costo",
   "Recommendations.healthInsurance": "Seguro de vida",
   "Recommendations.homeContent": "Seguro de hogar",
@@ -26,6 +26,6 @@
   "App.occupationStudent": "Estudiante",
   "App.childrenYes": "Si",
   "App.childrenNo": "No",
-  "App.addressPlaceholder": "Tu direccion aqui"
-
+  "App.addressPlaceholder": "Tu direccion aqui",
+  "App.addressQuestion": "Cual es tu direccion?"
 }

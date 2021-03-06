@@ -1,4 +1,4 @@
-import React from "react";
+import React, { ReactElement } from "react";
 import styles from "./header.module.scss";
 import { defineMessages, useIntl } from "react-intl";
 
@@ -17,12 +17,23 @@ const messages = defineMessages({
   },
 });
 
-interface HeaderProps {
+/**
+ * HeaderProps
+ * @memberof Header
+ * @alias HeaderProps
+ */
+export interface HeaderProps {
   setLocale: React.Dispatch<React.SetStateAction<string>>;
   locale: string;
 }
-
-export function Header({ setLocale, locale }: HeaderProps) {
+/**
+ *
+ * @param {Object} params
+ * @param {React.Dispatch<React.SetStateAction<string>>} params.setLocale setter for the locale
+ * @param {String} params.locale value of the current locale
+ * @returns ReactElement
+ */
+export function Header({ setLocale, locale }: HeaderProps): ReactElement {
   const { formatMessage } = useIntl();
   const handleOnChange = (event) => {
     setLocale(event.target.value);

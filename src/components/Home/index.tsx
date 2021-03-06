@@ -22,6 +22,13 @@ const messages = defineMessages({
   },
 });
 
+/**
+ *
+ * @param {Object} params
+ * @param {React.Dispatch<React.SetStateAction<string>>} params.setUserId react state setter for the user id
+ * @param {String} params.userId value used by the user to login
+ * @returns ReactElement
+ */
 export function Home ({userId, setUserId}) {
   const {formatMessage } = useIntl();
   const history = useHistory();
@@ -37,12 +44,15 @@ export function Home ({userId, setUserId}) {
 
   return (
     <div className={styles.container}>
-      <h1 className="p-h1">{formatMessage(messages.signIn)}</h1>
+      <h1 className={`p-h1 ${styles.title}`}>{formatMessage(messages.signIn)}</h1>
       <div>
-        <label className="p-h4" htmlFor="email">{formatMessage(messages.signInEmail)}</label>
+        <label className="p-h4" htmlFor="email">
+          {formatMessage(messages.signInEmail)}
+        </label>
         <input
-          id="email"
+          id="user-id"
           className="p-input d-block mt8 wmx6"
+          data-cy="input"
           type="email"
           placeholder={formatMessage(messages.emailPlaceholder)}
           value={userId}

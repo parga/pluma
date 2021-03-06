@@ -45,7 +45,6 @@ async function getToken(params, userId): Promise<string> {
 
     window.localStorage.setItem(`${userId}:token`, response.data.jwt);
   } catch (e) {
-    debugger;
   }
   return response?.data?.jwt;
 }
@@ -97,8 +96,9 @@ export function Recommendations({userId}) {
                 numberOfChildren: Number(window.localStorage.getItem(`${userId}:howMany`)),
                 email: window.localStorage.getItem(`${userId}:email`)
             };
-
-            getTokenCall(params, userId);
+            if(!token) {
+              getTokenCall(params, userId);
+            }
         }
     }, [completedProfile, userId, token])
 

@@ -54,6 +54,7 @@ export function Question({ question }: QuestionParams): ReactElement {
           {formatMessage(messages.previous)}
         </button>
         <button
+          data-cy="next-button"
           className="p-btn--primary mt16 ws2"
           onClick={() => {
             question.onNext();
