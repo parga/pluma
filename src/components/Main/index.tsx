@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useIntl } from 'react-intl';
 import { Route, Switch, useHistory } from 'react-router-dom';
-import { useQuestions } from '../hooks/useQuestions';
-import { Home } from './Home';
-import { Question } from './Question';
-import { Recommendations } from './Recommendations';
+import { useQuestions } from '../../hooks/useQuestions';
+import { Home } from '../Home';
+import { Question } from '../Question';
+import { Recommendations } from '../Recommendations';
+import styles from './main.module.scss';
 
 export function Main() {
   const intl = useIntl();
@@ -15,7 +16,7 @@ export function Main() {
     history.push('/');
   }
   return (
-    <div className="App">
+    <div className={styles.main}>
       <Switch>
         <Route exact={true} path="/">
           <Home userId={userId} setUserId={setUserId} />

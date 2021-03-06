@@ -1,6 +1,5 @@
-import React, { ReactElement, useState } from 'react';
-import './App.css';
 import '@popsure/dirty-swan/dist/index.css';
+import { ReactElement, useState } from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
 import {IntlProvider} from 'react-intl';
 import {default as englishDictionary} from './__locales__/en.json';
@@ -15,11 +14,11 @@ const messages = {
 
 
 function App(): ReactElement {
-  const [locale, setlocale] = useState('en');
+  const [locale, setLocale] = useState('en');
   return (
     <IntlProvider locale={locale} messages={messages[locale]}>
       <Router basename="/pluma">
-        <Header setLocale={setlocale} locale={locale}/>
+        <Header setLocale={setLocale} locale={locale}/>
         <Main/>
       </Router>
     </IntlProvider>

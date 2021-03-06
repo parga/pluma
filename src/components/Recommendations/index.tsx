@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from 'axios';
 import { defineMessages, useIntl } from "react-intl";
+import styles from './recommendations.module.scss';
 
 const messages = defineMessages({
   recommendationTitle: {
@@ -113,7 +114,7 @@ export function Recommendations({userId}) {
                 {formatMessage(messages.recommendationSubTitle)}
               </h4>
               {recommendations.map((recommendation, i) => (
-                <div key={i} className="recommendation mb24">
+                <div key={i} className={`${styles.recommendation} mb24`}>
                   <h4 className="p-h4">
                     {formatMessage(messages[recommendation.type])}
                   </h4>

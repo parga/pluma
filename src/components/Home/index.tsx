@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { defineMessages, useIntl } from 'react-intl';
 import { useHistory } from 'react-router-dom';
+import styles from './home.module.scss';
 
 const messages = defineMessages({
   signIn: {
@@ -35,7 +36,7 @@ export function Home ({userId, setUserId}) {
   }, [userId]);
 
   return (
-    <div className="home-container">
+    <div className={styles.container}>
       <h1 className="p-h1">{formatMessage(messages.signIn)}</h1>
       <div>
         <label className="p-h4" htmlFor="email">{formatMessage(messages.signInEmail)}</label>

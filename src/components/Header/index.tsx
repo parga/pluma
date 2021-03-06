@@ -1,4 +1,5 @@
 import React from "react";
+import styles from "./header.module.scss";
 import { defineMessages, useIntl } from "react-intl";
 
 const messages = defineMessages({
@@ -27,18 +28,18 @@ export function Header({ setLocale, locale }: HeaderProps) {
     setLocale(event.target.value);
   };
   return (
-    <header className="header-container">
-      <div className="header">
-        <a className="logo" href="/pluma">
+    <header className={styles.container}>
+      <div className={styles.header}>
+        <a className={styles.logo} href="/pluma">
           <img
             src="https://feather-insurance.com/_next/static/media/logo.0d69221106425e5288907e514db23d99.svg"
             aria-label="Home"
           />
-          <div className="name">
+          <div className={styles.name}>
             <h1 className="p-h1">Pluma</h1>
           </div>
         </a>
-        <div className="language-selector-box">
+        <div >
           <label htmlFor="language-selector">
             {formatMessage(messages.language)}
           </label>

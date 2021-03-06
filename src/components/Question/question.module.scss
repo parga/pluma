@@ -1,0 +1,11 @@
+.buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+.question {
+  display: flex;
+  flex-direction: column;
+  min-width: 47vw;
+  min-height: 40vh;
+}

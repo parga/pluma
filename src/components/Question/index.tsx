@@ -1,7 +1,8 @@
 import { ReactElement } from "react";
 import { defineMessages, useIntl } from "react-intl";
 import { useHistory } from "react-router-dom";
-import { Question as QuestionType } from "../hooks/useQuestions";
+import { Question as QuestionType } from "../../hooks/useQuestions";
+import styles from './question.module.scss';
 
 interface QuestionParams {
   question: QuestionType;
@@ -43,9 +44,9 @@ export function Question({ question }: QuestionParams): ReactElement {
     );
 
   return (
-    <div className="question">
+    <div className={styles.question}>
       {inputField}
-      <div className="buttons">
+      <div className={styles.buttons}>
         <button
           className="p-btn p-btn--primary mt16 ws2"
           onClick={() => navigate(previous)}
