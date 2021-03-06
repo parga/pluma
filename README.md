@@ -10,9 +10,11 @@ $ yarn docs // this is if you want to read the documentation
 $ yarn start
 ```
 
-the application uses (github actions)[https://github.com/parga/pluma/actions] for PR and the build itself
+the application uses [github actions](https://github.com/parga/pluma/actions) for PR and the build itself
 
-any commit to the
+If you create a PR a build will run for any commit to that PR and will let you know about the state of that build
+
+For the main branch, it will run the same as the PR but also deploy automatically to GH-Pages
 
 A lot of the code generated for documentation, testing and Integration test does not cover the entire application but serves more as an example of what could be done.
 
