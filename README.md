@@ -1,5 +1,5 @@
 # Welcome to the Pluma App
-~ Powered by Dirty Swan design system~
+~ Powered by Dirty Swan design system ~
 ## URL https://parga.github.io/pluma/
 
 

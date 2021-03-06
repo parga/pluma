@@ -16,6 +16,11 @@
     max-width: 85vw;
   }
 
+  @include p-size-tablet {
+    // If the screen width is < 34rm, the following gets applied
+    max-width: 43vw;
+  }
+
   @include p-size-desktop {
     // If the screen width is < 34rm, the following gets applied
     max-width: 34vw;
