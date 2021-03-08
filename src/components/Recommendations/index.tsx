@@ -1,6 +1,7 @@
 import { defineMessages, useIntl } from "react-intl";
 import styles from './recommendations.module.scss';
 import { useRecommendations } from "../../hooks/useRecommendations";
+import { useHistory } from "react-router-dom";
 
 const messages = defineMessages({
   recommendationTitle: {
@@ -11,6 +12,10 @@ const messages = defineMessages({
     id: "Recommendations.recommendationSubTitle",
     defaultMessage:
       "Based on your answers, this is what make sense for you and what you should pay",
+  },
+  previous: {
+    id: "Recommendations.goBack",
+    defaultMessage: "< Go Back",
   },
   HEALTH_INSURANCE: {
     id: "Recommendations.healthInsurance",
@@ -35,12 +40,14 @@ const messages = defineMessages({
 });
 
 export function Recommendations({userId}) {
-    const recommendations = useRecommendations({userId})
-    const {formatMessage} = useIntl()
+    const [recommendations, errors] = useRecommendations({userId})
+    const {formatMessage} = useIntl();
+    const history = useHistory();
+    const navigate = (url) => history.push(url);
 
     return (
       <>
-        {recommendations.length ? (
+        {!!recommendations.length && (
           <div className="home-container ml8 mr8">
             <h1 className="p-h1">
               {formatMessage(messages.recommendationTitle)}
@@ -63,8 +70,20 @@ export function Recommendations({userId}) {
               ))}
             </div>
           </div>
-        ) : (
+        )}
+        {!recommendations.length && !errors.email && (
           <div className="ds-spinner ds-spinner__l" />
+        )}
+        {errors.email && (
+          <div className="display: flex;">
+            <div className="p-notice--danger">{errors.email}</div>
+            <button
+              className="p-btn p-btn--primary mt16 ws2"
+              onClick={() => navigate("/emailAddress")}
+            >
+              {formatMessage(messages.previous)}
+            </button>
+          </div>
         )}
       </>
     );

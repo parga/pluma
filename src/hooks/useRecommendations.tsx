@@ -4,25 +4,31 @@ import axios from "axios";
 
 export function useRecommendations({userId}): any[] {
     const [token, setToken] = useState("");
+    const [errors, setErrors] = useState({});
     const [recommendations, setRecommendations] = useState([]);
 
     useEffect(() => {
-      setToken(window.localStorage.getItem(`${userId}:token`));
+      let token = window.localStorage.getItem(`${userId}:token`);
       const completedProfile = window.localStorage.getItem(
         `${userId}:completedProfile`
       );
       async function getTokenCall(params, userId) {
-        setToken(await getToken(params, userId));
+        const response = await getToken(params, userId);
+        if(response.errors) {
+          setErrors(response.errors);
+          return;
+        }
+
+        setRecommendations(
+          await getRecommendationsCall({token: response.data.jwt})
+        );
       }
 
       async function getRecommendationsCall({ token }) {
-        setRecommendations(await getRecommendations({ token }));
+        return await getRecommendations({ token });
       }
 
-      if (token) {
-        getRecommendationsCall({ token });
-      }
-      if (completedProfile === "true" && !token) {
+      if (completedProfile === "true" && token === null) {
         const params = {
           firstName: window.localStorage.getItem(`${userId}:firstName`),
           address: window.localStorage.getItem(`${userId}:address`),
@@ -34,13 +40,18 @@ export function useRecommendations({userId}): any[] {
         };
         getTokenCall(params, userId);
       }
-    }, [userId, token]);
+    }, [userId]);
 
-    return recommendations;
+    return [recommendations, errors];
 }
 
-async function getToken(params, userId): Promise<string> {
-  let response;
+async function getToken(params, userId): Promise<{errors: {}, data: {jwt: string}}> {
+  let response = {
+    errors: null,
+    data: {
+      jwt: ''
+    }
+  };
   try {
     response = await axios.post(
       "https://challenge-dot-popsure-204813.appspot.com/user",
@@ -49,12 +60,13 @@ async function getToken(params, userId): Promise<string> {
 
     window.localStorage.setItem(`${userId}:token`, response.data.jwt);
   } catch (e) {
+    response.errors = e.response.data.errors;
   }
-  return response?.data?.jwt;
+  return response;
 }
 
-async function getRecommendations({token}): Promise<[]> {
-    let response;
+async function getRecommendations({token}): Promise<any[]> {
+    let response = {data: []};
     try {
         response = await axios.get('https://challenge-dot-popsure-204813.appspot.com/recommendation ', {
             headers: {
@@ -62,7 +74,6 @@ async function getRecommendations({token}): Promise<[]> {
             }
         });
     } catch (e) {
-
     }
     return response.data;
 };
