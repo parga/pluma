@@ -3,7 +3,6 @@ import axios from "axios";
 
 
 export function useRecommendations({userId}): any[] {
-    const [token, setToken] = useState("");
     const [errors, setErrors] = useState({});
     const [recommendations, setRecommendations] = useState([]);
 
